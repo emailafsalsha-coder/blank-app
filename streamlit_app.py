@@ -3,7 +3,7 @@ import streamlit as st
 # Page config with SEO optimization
 st.set_page_config(
     page_title="치지직 VOD 다운로더 - 무료 CHZZK 비디오 다운로드 도구",
-    page_icon="📺",
+    page_icon="https://www.chzzkdownloader.com/favicon.ico",
     layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
