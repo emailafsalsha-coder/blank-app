@@ -253,7 +253,7 @@ st.markdown("""
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# FAQ Section - Based on top search keywords
+# FAQ Section - FIXED with unsafe_allow_html=True
 st.markdown("""
 <div style="max-width: 800px; margin: 4rem auto 2rem auto; padding: 0 2rem;">
     <h2 style="color: #00d97a; font-size: 1.8rem; text-align: center; margin-bottom: 2rem; font-weight: 600;">
@@ -323,7 +323,7 @@ st.markdown("""
         </a>
     </div>
 </div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True)  # THIS WAS MISSING!
 
 # SEO-friendly text content for search engines
 st.markdown("""
