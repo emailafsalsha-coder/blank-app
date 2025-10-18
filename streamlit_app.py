@@ -194,6 +194,16 @@ st.markdown("""
     .stLinkButton {
         margin-top: 0 !important;
     }
+    
+    /* FAQ hover effect */
+    .faq-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .faq-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 217, 122, 0.15);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -243,6 +253,78 @@ st.markdown("""
 
 st.markdown('</div>', unsafe_allow_html=True)
 
+# FAQ Section - Based on top search keywords
+st.markdown("""
+<div style="max-width: 800px; margin: 4rem auto 2rem auto; padding: 0 2rem;">
+    <h2 style="color: #00d97a; font-size: 1.8rem; text-align: center; margin-bottom: 2rem; font-weight: 600;">
+        자주 묻는 질문 (FAQ)
+    </h2>
+    
+    <div class="faq-card" style="background-color: #2d2d2d; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #3a3a3a;">
+        <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 600;">
+            🎬 치지직 클립 다운로드는 어떻게 하나요?
+        </h3>
+        <p style="color: #cccccc; line-height: 1.6; margin-bottom: 0;">
+            <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>에서 
+            치지직 클립 URL을 붙여넣기만 하면 됩니다. 클릭 몇 번으로 고품질 클립을 저장할 수 있습니다.
+        </p>
+    </div>
+    
+    <div class="faq-card" style="background-color: #2d2d2d; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #3a3a3a;">
+        <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 600;">
+            📱 치지직 모바일 다운로드도 가능한가요?
+        </h3>
+        <p style="color: #cccccc; line-height: 1.6; margin-bottom: 0;">
+            네! <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>은 
+            모바일에서도 완벽하게 작동합니다. 스마트폰에서 치지직 다시보기와 클립을 쉽게 다운로드하세요.
+        </p>
+    </div>
+    
+    <div class="faq-card" style="background-color: #2d2d2d; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #3a3a3a;">
+        <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 600;">
+            🎵 치지직 영상을 음원(오디오)으로 변환할 수 있나요?
+        </h3>
+        <p style="color: #cccccc; line-height: 1.6; margin-bottom: 0;">
+            물론입니다! <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>은 
+            오디오 변환 기능을 제공합니다. 치지직 VOD에서 음악이나 대화만 추출하여 MP3로 저장할 수 있습니다.
+        </p>
+    </div>
+    
+    <div class="faq-card" style="background-color: #2d2d2d; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #3a3a3a;">
+        <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 600;">
+            💎 치지직 VOD 다운로더로 무엇을 다운로드할 수 있나요?
+        </h3>
+        <p style="color: #cccccc; line-height: 1.6; margin-bottom: 0;">
+            <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>을 사용하면 
+            치지직의 모든 공개 VOD, 다시보기 영상, 클립을 고품질로 다운로드할 수 있습니다. 가장 빠르고 안정적인 치지직 다운로더입니다.
+        </p>
+    </div>
+    
+    <div class="faq-card" style="background-color: #2d2d2d; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #3a3a3a;">
+        <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 600;">
+            ⚡ 왜 chzzkdownloader.com을 사용해야 하나요?
+        </h3>
+        <p style="color: #cccccc; line-height: 1.6; margin-bottom: 0;">
+            ✅ 무료 사용 가능<br>
+            ✅ 빠른 다운로드 속도<br>
+            ✅ 고품질 영상 지원<br>
+            ✅ 오디오 변환 기능<br>
+            ✅ 모바일 완벽 지원<br>
+            ✅ 설치 불필요 - 웹에서 바로 사용
+        </p>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="https://chzzkdownloader.com?utm_source=faq_cta" 
+           style="display: inline-block; background: linear-gradient(135deg, #00d97a, #00b368); color: white; 
+                  padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; 
+                  font-size: 16px; box-shadow: 0 4px 15px rgba(0, 217, 122, 0.3); transition: transform 0.2s;">
+            🚀 지금 바로 다운로드 시작하기
+        </a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 # SEO-friendly text content for search engines
 st.markdown("""
 <div style="display: none;">
@@ -250,6 +332,7 @@ st.markdown("""
 네이버의 게임 스트리밍 플랫폼인 치지직에서 제공되는 다양한 VOD 영상을 고품질로 저장할 수 있으며, 
 별도의 소프트웨어 설치 없이 웹브라우저에서 바로 이용 가능합니다. 
 안전하고 신뢰할 수 있는 다운로드 서비스로 개인정보 보호를 최우선으로 합니다.
+치지직 클립 다운로드, 치지직 다시보기 다운로드, 치지직 영상 다운로드, 치지직 오디오 변환 모두 가능합니다.
 </div>
 """, unsafe_allow_html=True)
 
