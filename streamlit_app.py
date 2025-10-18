@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 # Page config with SEO optimization
 st.set_page_config(
@@ -38,7 +37,7 @@ st.markdown("""
 </a>
 """, unsafe_allow_html=True)
 
-# Original CSS styling with minimal changes
+# Original CSS styling with scrolling fixes
 st.markdown("""
 <style>
     /* Global dark background */
@@ -52,11 +51,18 @@ st.markdown("""
     .stDecoration {display:none;}
     header {visibility: hidden;}
     
-    /* Main container */
+    /* Main container - removed height restrictions */
     .block-container {
-        padding: 4rem 2rem !important;
+        padding: 4rem 2rem 2rem 2rem !important;
         max-width: 800px !important;
         margin: 0 auto !important;
+        min-height: 100vh !important;
+    }
+    
+    /* Ensure main content is scrollable */
+    .main > div {
+        overflow-y: auto !important;
+        height: auto !important;
     }
     
     /* Title styling - centered like in image */
@@ -198,12 +204,24 @@ st.markdown("""
     
     /* FAQ hover effect */
     .faq-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background-color: #2d2d2d !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        margin-bottom: 1.5rem !important;
+        border: 1px solid #3a3a3a !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
     }
     
     .faq-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 20px rgba(0, 217, 122, 0.15);
+    }
+    
+    /* Ensure FAQ section is visible */
+    .faq-container {
+        max-width: 800px;
+        margin: 4rem auto 2rem auto;
+        padding: 0 2rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -254,137 +272,78 @@ st.markdown("""
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# FAQ Section - Using components.html() for better rendering
-import streamlit.components.v1 as components
+# Add some spacing
+st.markdown("<br><br>", unsafe_allow_html=True)
 
-# FAQ Title using regular markdown
+# FAQ Section Title
 st.markdown("""
-<h2 style="color: #00d97a; font-size: 1.8rem; text-align: center; margin: 4rem auto 2rem auto; font-weight: 600;">
+<h2 style="color: #00d97a; font-size: 1.8rem; text-align: center; margin: 2rem 0; font-weight: 600;">
     자주 묻는 질문 (FAQ)
 </h2>
 """, unsafe_allow_html=True)
 
-# FAQ content using components.html() for proper HTML rendering
-faq_html = """
-<style>
-    .faq-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        background-color: #1a1a1a;
-    }
-    
-    .faq-card {
-        background-color: #2d2d2d;
-        border-radius: 12px;
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-        border: 1px solid #3a3a3a;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .faq-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(0, 217, 122, 0.15);
-    }
-    
-    .faq-card h3 {
-        color: #ffffff;
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-        font-weight: 600;
-    }
-    
-    .faq-card p {
-        color: #cccccc;
-        line-height: 1.6;
-        margin-bottom: 0;
-    }
-    
-    .faq-card a {
-        color: #00d97a;
-        text-decoration: none;
-        font-weight: 500;
-    }
-    
-    .faq-card a:hover {
-        text-decoration: underline;
-    }
-    
-    .cta-button {
-        display: inline-block;
-        background: linear-gradient(135deg, #00d97a, #00b368);
-        color: white;
-        padding: 14px 32px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 4px 15px rgba(0, 217, 122, 0.3);
-        transition: transform 0.2s;
-    }
-    
-    .cta-button:hover {
-        transform: translateY(-2px);
-        text-decoration: none;
-    }
-</style>
+# FAQ Container
+st.markdown('<div class="faq-container">', unsafe_allow_html=True)
 
-<div class="faq-container">
-    <div class="faq-card">
-        <h3>🎬 치지직 클립 다운로드는 어떻게 하나요?</h3>
-        <p>
-            <a href="https://chzzkdownloader.com?utm_source=faq">chzzkdownloader.com</a>에서 
-            치지직 클립 URL을 붙여넣기만 하면 됩니다. 클릭 몇 번으로 고품질 클립을 저장할 수 있습니다.
-        </p>
+# FAQ items using expander (native Streamlit component for better compatibility)
+with st.expander("🎬 치지직 클립 다운로드는 어떻게 하나요?", expanded=False):
+    st.markdown("""
+    <p style="color: #cccccc; line-height: 1.6;">
+        <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>에서 
+        치지직 클립 URL을 붙여넣기만 하면 됩니다. 클릭 몇 번으로 고품질 클립을 저장할 수 있습니다.
+    </p>
+    """, unsafe_allow_html=True)
+
+with st.expander("📱 치지직 모바일 다운로드도 가능한가요?", expanded=False):
+    st.markdown("""
+    <p style="color: #cccccc; line-height: 1.6;">
+        네! <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>은 
+        모바일에서도 완벽하게 작동합니다. 스마트폰에서 치지직 다시보기와 클립을 쉽게 다운로드하세요.
+    </p>
+    """, unsafe_allow_html=True)
+
+with st.expander("🎵 치지직 영상을 음원(오디오)으로 변환할 수 있나요?", expanded=False):
+    st.markdown("""
+    <p style="color: #cccccc; line-height: 1.6;">
+        물론입니다! <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>은 
+        오디오 변환 기능을 제공합니다. 치지직 VOD에서 음악이나 대화만 추출하여 MP3로 저장할 수 있습니다.
+    </p>
+    """, unsafe_allow_html=True)
+
+with st.expander("💎 치지직 VOD 다운로더로 무엇을 다운로드할 수 있나요?", expanded=False):
+    st.markdown("""
+    <p style="color: #cccccc; line-height: 1.6;">
+        <a href="https://chzzkdownloader.com?utm_source=faq" style="color: #00d97a; text-decoration: none; font-weight: 500;">chzzkdownloader.com</a>을 사용하면 
+        치지직의 모든 공개 VOD, 다시보기 영상, 클립을 고품질로 다운로드할 수 있습니다. 가장 빠르고 안정적인 치지직 다운로더입니다.
+    </p>
+    """, unsafe_allow_html=True)
+
+with st.expander("⚡ 왜 chzzkdownloader.com을 사용해야 하나요?", expanded=False):
+    st.markdown("""
+    <div style="color: #cccccc; line-height: 1.6;">
+        ✅ 무료 사용 가능<br>
+        ✅ 빠른 다운로드 속도<br>
+        ✅ 고품질 영상 지원<br>
+        ✅ 오디오 변환 기능<br>
+        ✅ 모바일 완벽 지원<br>
+        ✅ 설치 불필요 - 웹에서 바로 사용
     </div>
-    
-    <div class="faq-card">
-        <h3>📱 치지직 모바일 다운로드도 가능한가요?</h3>
-        <p>
-            네! <a href="https://chzzkdownloader.com?utm_source=faq">chzzkdownloader.com</a>은 
-            모바일에서도 완벽하게 작동합니다. 스마트폰에서 치지직 다시보기와 클립을 쉽게 다운로드하세요.
-        </p>
-    </div>
-    
-    <div class="faq-card">
-        <h3>🎵 치지직 영상을 음원(오디오)으로 변환할 수 있나요?</h3>
-        <p>
-            물론입니다! <a href="https://chzzkdownloader.com?utm_source=faq">chzzkdownloader.com</a>은 
-            오디오 변환 기능을 제공합니다. 치지직 VOD에서 음악이나 대화만 추출하여 MP3로 저장할 수 있습니다.
-        </p>
-    </div>
-    
-    <div class="faq-card">
-        <h3>💎 치지직 VOD 다운로더로 무엇을 다운로드할 수 있나요?</h3>
-        <p>
-            <a href="https://chzzkdownloader.com?utm_source=faq">chzzkdownloader.com</a>을 사용하면 
-            치지직의 모든 공개 VOD, 다시보기 영상, 클립을 고품질로 다운로드할 수 있습니다. 가장 빠르고 안정적인 치지직 다운로더입니다.
-        </p>
-    </div>
-    
-    <div class="faq-card">
-        <h3>⚡ 왜 chzzkdownloader.com을 사용해야 하나요?</h3>
-        <p>
-            ✅ 무료 사용 가능<br>
-            ✅ 빠른 다운로드 속도<br>
-            ✅ 고품질 영상 지원<br>
-            ✅ 오디오 변환 기능<br>
-            ✅ 모바일 완벽 지원<br>
-            ✅ 설치 불필요 - 웹에서 바로 사용
-        </p>
-    </div>
-    
-    <div style="text-align: center; margin-top: 2rem;">
-        <a href="https://chzzkdownloader.com?utm_source=faq_cta" class="cta-button">
-            🚀 지금 바로 다운로드 시작하기
-        </a>
-    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
+
+# CTA Button
+st.markdown("""
+<div style="text-align: center; margin: 3rem 0 2rem 0;">
+    <a href="https://chzzkdownloader.com?utm_source=faq_cta" 
+       style="display: inline-block; background: linear-gradient(135deg, #00d97a, #00b368); 
+              color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; 
+              font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(0, 217, 122, 0.3); 
+              transition: transform 0.2s;">
+        🚀 지금 바로 다운로드 시작하기
+    </a>
 </div>
-"""
-
-# Render FAQ content in an iframe
-components.html(faq_html, height=850)
+""", unsafe_allow_html=True)
 
 # SEO-friendly text content for search engines
 st.markdown("""
@@ -416,3 +375,6 @@ st.markdown("""
 }
 </script>
 """, unsafe_allow_html=True)
+
+# Add padding at bottom to ensure scrollability
+st.markdown("<div style='height: 50px;'></div>", unsafe_allow_html=True)
