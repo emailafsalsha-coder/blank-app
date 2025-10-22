@@ -30,18 +30,19 @@ st.markdown("""
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 """, unsafe_allow_html=True)
 
-# Analytics scripts using components.html to execute JavaScript
-components.html("""
-<!-- Google tag (gtag.js) -->
+# Google Analytics - Working method for Streamlit
+st.markdown("""
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7NC1BWTEG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-C7NC1BWTEG');
+  gtag('config', 'G-C7NC1BWTEG', {
+    'page_title': document.title,
+    'page_location': window.location.href
+  });
 </script>
 
-<!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -49,7 +50,7 @@ components.html("""
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
 </script>
-""", height=0)
+""", unsafe_allow_html=True)
 
 # Premium purchase button
 st.markdown("""
