@@ -13,7 +13,7 @@ st.set_page_config(
     }
 )
 
-# SEO meta description
+# SEO meta description + Analytics
 st.markdown("""
 <meta name="description" content="무료 치지직 VOD 다운로더 - CHZZK 비디오를 빠르고 안전하게 다운로드하세요. 간단한 URL 입력으로 고품질 비디오 다운로드가 가능합니다.">
 <meta name="keywords" content="치지직, CHZZK, VOD, 다운로더, 비디오 다운로드, 무료, 온라인 도구">
@@ -27,6 +27,24 @@ st.markdown("""
 <meta name="twitter:description" content="무료 CHZZK 비디오 다운로드 도구">
 <meta name="robots" content="index, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7NC1BWTEG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C7NC1BWTEG');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+</script>
 """, unsafe_allow_html=True)
 
 # Premium purchase button
