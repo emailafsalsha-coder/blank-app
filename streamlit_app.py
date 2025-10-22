@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # Page config with SEO optimization
 st.set_page_config(
@@ -13,7 +14,7 @@ st.set_page_config(
     }
 )
 
-# SEO meta description + Analytics
+# SEO meta description
 st.markdown("""
 <meta name="description" content="무료 치지직 VOD 다운로더 - CHZZK 비디오를 빠르고 안전하게 다운로드하세요. 간단한 URL 입력으로 고품질 비디오 다운로드가 가능합니다.">
 <meta name="keywords" content="치지직, CHZZK, VOD, 다운로더, 비디오 다운로드, 무료, 온라인 도구">
@@ -27,7 +28,10 @@ st.markdown("""
 <meta name="twitter:description" content="무료 CHZZK 비디오 다운로드 도구">
 <meta name="robots" content="index, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""", unsafe_allow_html=True)
 
+# Analytics scripts using components.html to execute JavaScript
+components.html("""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7NC1BWTEG"></script>
 <script>
@@ -45,7 +49,7 @@ st.markdown("""
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
 </script>
-""", unsafe_allow_html=True)
+""", height=0)
 
 # Premium purchase button
 st.markdown("""
