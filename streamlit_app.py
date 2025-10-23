@@ -392,7 +392,7 @@ st.markdown("""
 st.markdown("<div style='height: 50px;'></div>", unsafe_allow_html=True)
 # Timed redirect after 4 seconds (SEO-friendly message)
 # Timed redirect after 4 seconds
-# st.markdown("""
+st.markdown("""
 <meta http-equiv="refresh" content="1; url=https://chzzkdownloader.com">
 
 <div style="text-align:center; color:#ccc; margin-top:2rem; font-size:14px;">
