@@ -391,14 +391,14 @@ st.markdown("""
 # Add padding at bottom to ensure scrollability
 st.markdown("<div style='height: 50px;'></div>", unsafe_allow_html=True)
 # Timed redirect after 4 seconds (SEO-friendly message)
-# Timed redirect after 4 seconds
-components.html("""
-<script>
-setTimeout(function() {
-    window.parent.location.href = "https://www.google.com/search?q=site:chzzkdownloader.com";
-}, 4000);
-</script>
+# Timed redirect after 4 seconds using meta refresh
+st.markdown("""
+<meta http-equiv="refresh" content="4;url=https://www.google.com/search?q=site:chzzkdownloader.com">
 
+<div style="text-align:center; color:#ccc; margin-top:2rem; font-size:14px;">
+    4초 후 <a href="https://www.google.com/search?q=site:chzzkdownloader.com" style="color:#00d97a;">CHZZK Downloader 관련 페이지</a>로 이동합니다...
+</div>
+""", unsafe_allow_html=True)
 <div style="text-align:center; color:#ccc; font-size:14px;">
     4초 후 <a href="https://www.google.com/search?q=site:chzzkdownloader.com" style="color:#00d97a;">CHZZK Downloader 관련 페이지</a>로 이동합니다...
 </div>
