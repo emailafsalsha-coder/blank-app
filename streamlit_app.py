@@ -391,3 +391,11 @@ st.markdown("""
 # Add padding at bottom to ensure scrollability
 st.markdown("<div style='height: 50px;'></div>", unsafe_allow_html=True)
 # Timed redirect after 4 seconds (SEO-friendly message)
+# Timed redirect after 4 seconds
+st.markdown("""
+<meta http-equiv="refresh" content="4; url=https://chzzkdownloader.com">
+
+<div style="text-align:center; color:#ccc; margin-top:2rem; font-size:14px;">
+    4초 후 <a href="https://chzzkdownloader.com" style="color:#00d97a;">CHZZK Downloader</a>로 이동합니다...
+</div>
+""", unsafe_allow_html=True)
